@@ -1,10 +1,10 @@
 {
-  "name": "appium-support",
+  "name": "@msteams/appium-support",
   "description": "Support libs used across appium packages",
   "keywords": [
     "appium"
   ],
-  "version": "2.54.2",
+  "version": "2.54.3",
   "author": "appium",
   "license": "Apache-2.0",
   "repository": {
@@ -72,7 +72,7 @@
     "build": "gulp transpile",
     "coverage": "gulp coveralls",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
-    "precommit-test": "REPORTER=dot gulp once",
+    "precommit-test": "env REPORTER=dot bash -c 'gulp once'",
     "lint": "gulp eslint",
     "lint:fix": "gulp eslint --fix"
   },

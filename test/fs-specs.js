@@ -24,6 +24,7 @@ describe('fs', function () {
     should.exist(fs.mkdir);
     should.exist(fs.readlink);
     should.exist(fs.exists);
+    should.exist(fs.existsSync);
     should.exist(fs.rimraf);
     should.exist(fs.rimrafSync);
     should.exist(fs.readFile);
@@ -62,6 +63,11 @@ describe('fs', function () {
     (await fs.exists(existingPath)).should.be.ok;
     let nonExistingPath = path.resolve(__dirname, 'wrong-specs.js');
     (await fs.exists(nonExistingPath)).should.not.be.ok;
+  });
+  it('existsSync', function () {
+    (fs.existsSync(existingPath)).should.be.ok;
+    let nonExistingPath = path.resolve(__dirname, 'wrong-specs.js');
+    (fs.existsSync(nonExistingPath)).should.not.be.ok;
   });
   it('readFile', async function () {
     (await fs.readFile(existingPath, 'utf8')).should.contain('readFile');
